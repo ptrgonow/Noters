@@ -1,19 +1,39 @@
 package com.example.noters.Entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 
 @Entity
-@Table(name = "NOTERS_MEMBER")
+@Table(name = "noters_members")
 public class NotersMember {
-    private String email;
-
-    private String name;
-
-    private String password;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "EMAIL", nullable = false, length = 500)
+    private Long id;
+    private String email;
+    private String password;
+    private String name;
+
+    // 생성자
+    public NotersMember() {
+        // 기본 생성자
+    }
+
+    public NotersMember(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
+
+    // 게터, 세터
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -22,16 +42,6 @@ public class NotersMember {
         this.email = email;
     }
 
-    @Column(name = "NAME", nullable = false, length = 500)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(name = "PASSWORD", nullable = false, length = 500)
     public String getPassword() {
         return password;
     }
@@ -40,4 +50,11 @@ public class NotersMember {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

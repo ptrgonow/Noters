@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 일기</title>
+    <link rel="stylesheet" th:href="@{/home.css}">
+</head>
+<body>
+    <header>
+        <h1>여행 일기</h1>
+        <div class="user-buttons">
+            <button th:onclick="'location.href=\'/login\''">로그인</button>
+            <button th:onclick="'location.href=\'/signup\''">회원가입</button>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">홈</a></li>
+            <li><a th:href="@{/destinations}">여행지</a></li>
+            <li><a th:href="@{/profile}">프로필</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>사진 업로드</h2>
+            <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <label>
+                    <textarea name="description"></textarea>
+                </label>
+                <button type="submit">저장</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022 여행 일기. All rights reserved.</p>
+    </footer>
+    <script th:src="@{/static/script.js}"></script>
+</body>
+</html>

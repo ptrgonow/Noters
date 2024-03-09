@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<NotersMember, Long>, JpaSpecificationExecutor<NotersMember> {
+public interface MemberRepository extends JpaRepository< NotersMember, Long> {
 
     Optional<NotersMember> findByEmail(String email);
 }
